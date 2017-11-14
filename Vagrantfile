@@ -11,7 +11,8 @@ Vagrant.configure("2") do |config|
       node.vm.box = "centos/7"
       node.vm.hostname = "server#{i}"
       node.vm.network :private_network, ip: "10.42.0.10#{i}"
-      #config.ssh.port= "220#{i}"
+      config.vm.network :forwarded_port, guest: 22, host: "222#{i}", id: 'ssh'
+      config.ssh.insert_key= false
       node.vm.provider "virtualbox" do |vb|
         vb.memory = "256"
       end
