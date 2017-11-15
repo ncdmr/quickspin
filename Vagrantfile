@@ -16,6 +16,9 @@ Vagrant.configure("2") do |config|
       node.vm.provider "virtualbox" do |vb|
         vb.memory = "256"
       end
+      config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "ProvMyVagrants.yml"
+      end
     end
   end
 end

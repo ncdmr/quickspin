@@ -1,0 +1,25 @@
+---
+- hosts:  all
+  become: true
+  tasks:
+  - name: update yum
+    yum:
+      name: "*"
+      state: latest
+  - name: install some packages
+    yum: 
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - lsof
+      - strace
+      - git
+    notify:
+      - Ping Telegram
+
+  handlers:
+  - name: Ping Telegram
+    telegram:
+      token: "{{ TelegramToken }}"
+      chat_id: "{{ TelegramChatID }}"
+      msg: Ansible task finished
