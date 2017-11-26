@@ -1,5 +1,4 @@
 ---
-# tasks file for apache
-  - include_tasks: install.yml
-  - include_tasks: configure.yml
-  - include_tasks: start.yml
+- include_tasks: install.yml
+- include_tasks: configure.yml
+- include_tasks: start.yml
