@@ -1,6 +1,0 @@
----
-- hosts:  all
-  roles:  
-  - role: apache
-  tasks:
-  - include_tasks: swstack.yml

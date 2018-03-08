@@ -1,9 +1,0 @@
----
-- name: Software stack update
-  yum:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-  - strace
-  - lsof
-  - vim-common
